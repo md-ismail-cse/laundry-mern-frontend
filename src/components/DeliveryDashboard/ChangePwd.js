@@ -27,7 +27,12 @@ const ChangePwd = () => {
   useEffect(() => {
     const fatchCustomer = async () => {
       const { data } = await axios.get(
-        process.env.REACT_APP_SERVER + `/api/admin/delivery-men/${id}`
+        process.env.REACT_APP_SERVER + `/api/admin/delivery-men/${id}`,
+        {
+          headers: {
+            Authorization: localStorage.getItem("dToken"),
+          },
+        }
       );
       setThumb(data.thumb);
       setEmail(data.email);
@@ -53,6 +58,7 @@ const ChangePwd = () => {
           {
             headers: {
               "Content-Type": "multipart/form-data",
+              Authorization: localStorage.getItem("dToken"),
             },
           }
         )

@@ -19,7 +19,12 @@ const ProfilePic = () => {
   useEffect(() => {
     const fatchCustomer = async () => {
       const { data } = await axios.get(
-        process.env.REACT_APP_SERVER + `/api/admin/customers/${id}`
+        process.env.REACT_APP_SERVER + `/api/admin/customers/${id}`,
+        {
+          headers: {
+            Authorization: localStorage.getItem("cToken"),
+          },
+        }
       );
       setThumb(data.thumb);
       setLoading(true);
@@ -40,6 +45,7 @@ const ProfilePic = () => {
         {
           headers: {
             "Content-Type": "multipart/form-data",
+            Authorization: localStorage.getItem("cToken"),
           },
         }
       )

@@ -26,7 +26,12 @@ const Settings = () => {
   useEffect(() => {
     const fatchDeliveryMan = async () => {
       const { data } = await axios.get(
-        process.env.REACT_APP_SERVER + `/api/admin/delivery-men/${id}`
+        process.env.REACT_APP_SERVER + `/api/admin/delivery-men/${id}`,
+        {
+          headers: {
+            Authorization: localStorage.getItem("dToken"),
+          },
+        }
       );
       setName(data.name);
       setPhone(data.phone);
@@ -53,6 +58,7 @@ const Settings = () => {
         {
           headers: {
             "Content-Type": "multipart/form-data",
+            Authorization: localStorage.getItem("dToken"),
           },
         }
       )

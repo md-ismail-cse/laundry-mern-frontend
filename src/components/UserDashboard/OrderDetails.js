@@ -17,7 +17,12 @@ const OrderDetails = () => {
   useEffect(() => {
     const fatchOrder = async () => {
       const { data } = await axios.get(
-        process.env.REACT_APP_SERVER + `/api/admin/orders/${id}`
+        process.env.REACT_APP_SERVER + `/api/admin/orders/${id}`,
+        {
+          headers: {
+            Authorization: localStorage.getItem("cToken"),
+          },
+        }
       );
       setOrder(data);
       setitems(data.items);
@@ -34,7 +39,12 @@ const OrderDetails = () => {
     const fatchDeliveryMan = async () => {
       const { data } = await axios.get(
         process.env.REACT_APP_SERVER +
-          `/api/admin/delivery-men/${deliveryManID}`
+          `/api/admin/delivery-men/${deliveryManID}`,
+        {
+          headers: {
+            Authorization: localStorage.getItem("cToken"),
+          },
+        }
       );
       setDeliveryMan(data);
       setLoading2(true);
@@ -54,7 +64,11 @@ const OrderDetails = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(process.env.REACT_APP_SERVER + `/api/admin/orders/${id}`)
+          .delete(process.env.REACT_APP_SERVER + `/api/admin/orders/${id}`, {
+            headers: {
+              Authorization: localStorage.getItem("cToken"),
+            },
+          })
           .then((response) => {
             Swal.fire({
               icon: "success",
@@ -95,6 +109,7 @@ const OrderDetails = () => {
             {
               headers: {
                 "Content-Type": "application/json",
+                Authorization: localStorage.getItem("cToken"),
               },
             }
           )
@@ -138,6 +153,7 @@ const OrderDetails = () => {
             {
               headers: {
                 "Content-Type": "application/json",
+                Authorization: localStorage.getItem("cToken"),
               },
             }
           )

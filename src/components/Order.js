@@ -90,6 +90,7 @@ const Order = () => {
           .post(process.env.REACT_APP_SERVER + `/api/admin/orders`, data, {
             headers: {
               "Content-Type": "application/json",
+              Authorization: localStorage.getItem("cToken"),
             },
           })
           .then((response) => {
@@ -116,7 +117,7 @@ const Order = () => {
     } else {
       Swal.fire({
         icon: "error",
-        text: "Please, select any food.",
+        text: "Please, select any item.",
       });
     }
   };

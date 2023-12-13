@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import Modal from 'react-modal';
-// import { useReactToPrint } from 'react-to-print';
 import { Col, Container, Row } from "reactstrap";
 import "./dashboard.css";
 import axios from "axios";
@@ -26,7 +24,12 @@ const Settings = () => {
   useEffect(() => {
     const fatchCustomer = async () => {
       const { data } = await axios.get(
-        process.env.REACT_APP_SERVER + `/api/admin/customers/${id}`
+        process.env.REACT_APP_SERVER + `/api/admin/customers/${id}`,
+        {
+          headers: {
+            Authorization: localStorage.getItem("cToken"),
+          },
+        }
       );
       setName(data.name);
       setPhone(data.phone);
@@ -53,6 +56,7 @@ const Settings = () => {
         {
           headers: {
             "Content-Type": "multipart/form-data",
+            Authorization: localStorage.getItem("cToken"),
           },
         }
       )

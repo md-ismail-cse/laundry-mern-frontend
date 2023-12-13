@@ -18,7 +18,12 @@ const Dashboard = () => {
   useEffect(() => {
     const fatchOrders = async () => {
       const { data } = await axios.get(
-        process.env.REACT_APP_SERVER + `/api/admin/orders`
+        process.env.REACT_APP_SERVER + `/api/admin/orders`,
+        {
+          headers: {
+            Authorization: localStorage.getItem("dToken"),
+          },
+        }
       );
       const fatchCustomerOrders = data.filter((curData) => {
         return curData.delivery_man_id === delivery_id;

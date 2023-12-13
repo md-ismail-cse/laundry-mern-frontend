@@ -12,7 +12,12 @@ const Profile = () => {
   useEffect(() => {
     const fatchCustomer = async () => {
       const { data } = await axios.get(
-        process.env.REACT_APP_SERVER + `/api/admin/customers/${id}`
+        process.env.REACT_APP_SERVER + `/api/admin/customers/${id}`,
+        {
+          headers: {
+            Authorization: localStorage.getItem("cToken"),
+          },
+        }
       );
       setCustomer(data);
       setLoading(true);

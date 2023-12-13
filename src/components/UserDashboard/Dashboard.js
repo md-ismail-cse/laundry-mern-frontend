@@ -15,7 +15,12 @@ const Dashboard = () => {
   useEffect(() => {
     const fatchCustomer = async () => {
       const { data } = await axios.get(
-        process.env.REACT_APP_SERVER + `/api/admin/customers/${id}`
+        process.env.REACT_APP_SERVER + `/api/admin/customers/${id}`,
+        {
+          headers: {
+            Authorization: localStorage.getItem("cToken"),
+          },
+        }
       );
       setCustomer(data);
     };
@@ -29,7 +34,12 @@ const Dashboard = () => {
   useEffect(() => {
     const fatchOrders = async () => {
       const { data } = await axios.get(
-        process.env.REACT_APP_SERVER + `/api/admin/orders`
+        process.env.REACT_APP_SERVER + `/api/admin/orders`,
+        {
+          headers: {
+            Authorization: localStorage.getItem("cToken"),
+          },
+        }
       );
       const fatchCustomerOrders = data.filter((curData) => {
         return curData.customer_id === customer_id;
@@ -52,7 +62,11 @@ const Dashboard = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(process.env.REACT_APP_SERVER + `/api/admin/orders/${id}`)
+          .delete(process.env.REACT_APP_SERVER + `/api/admin/orders/${id}`, {
+            headers: {
+              Authorization: localStorage.getItem("cToken"),
+            },
+          })
           .catch((error) => {
             Swal.fire({
               icon: "error",
@@ -85,6 +99,7 @@ const Dashboard = () => {
             {
               headers: {
                 "Content-Type": "application/json",
+                Authorization: localStorage.getItem("cToken"),
               },
             }
           )

@@ -12,7 +12,12 @@ const Profile = () => {
   useEffect(() => {
     const fatchDeliveryMan = async () => {
       const { data } = await axios.get(
-        process.env.REACT_APP_SERVER + `/api/admin/delivery-men/${id}`
+        process.env.REACT_APP_SERVER + `/api/admin/delivery-men/${id}`,
+        {
+          headers: {
+            Authorization: localStorage.getItem("dToken"),
+          },
+        }
       );
       setDeliveryMan(data);
       setLoading(true);

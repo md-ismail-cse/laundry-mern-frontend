@@ -35,7 +35,7 @@ const Login = () => {
         address,
       };
       axios
-        .post(process.env.REACT_APP_SERVER + `/api/admin/customers`, data, {
+        .post(process.env.REACT_APP_SERVER + `/api/admin/customerreg`, data, {
           headers: {
             "Content-Type": "application/json",
           },

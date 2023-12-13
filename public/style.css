@@ -28,6 +28,7 @@ button {
 .btn-primary {
   background: #1665a0;
   border-color: #1665a0;
+  line-height: 18px !important;
 }
 .btn-primary:hover {
   background: #44bd32;
@@ -96,6 +97,10 @@ nav .active {
 #Homeslideshow .now-ui-icons {
   color: #fff;
 }
+#Homeslideshow a {
+  display: block;
+  text-align: center;
+}
 /* service */
 .service-image {
   -webkit-transition: -webkit-transform 0.5s;
@@ -120,6 +125,10 @@ nav .active {
   background-color: #1665a0;
   margin: 0 auto;
   margin-top: 5px;
+}
+
+#google_map .card-body {
+  padding: 5px 1rem;
 }
 /* choose us */
 .icon-size {
@@ -151,6 +160,7 @@ nav .active {
 
 .card-title {
   color: #1665a0 !important;
+  font-size: 20px;
 }
 
 .ch {
@@ -220,7 +230,9 @@ nav .active {
 #Footer .list-unstyled.social-icons li a {
   margin-right: 10px;
 }
-
+.footer-bottom {
+  font-size: 15px;
+}
 #Footer .footer-bottom a {
   color: #44bd32;
   font-weight: bold;

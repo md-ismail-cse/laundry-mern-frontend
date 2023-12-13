@@ -19,7 +19,12 @@ const OrderDetails = () => {
   useEffect(() => {
     const fatchOrder = async () => {
       const { data } = await axios.get(
-        process.env.REACT_APP_SERVER + `/api/admin/orders/${id}`
+        process.env.REACT_APP_SERVER + `/api/admin/orders/${id}`,
+        {
+          headers: {
+            Authorization: localStorage.getItem("dToken"),
+          },
+        }
       );
       setOrder(data);
       setitems(data.items);
@@ -35,7 +40,12 @@ const OrderDetails = () => {
     const fatchDeliveryMan = async () => {
       const { data } = await axios.get(
         process.env.REACT_APP_SERVER +
-          `/api/admin/delivery-men/${deliveryManID}`
+          `/api/admin/delivery-men/${deliveryManID}`,
+        {
+          headers: {
+            Authorization: localStorage.getItem("dToken"),
+          },
+        }
       );
       setDeliveryMan(data);
     };
@@ -63,6 +73,7 @@ const OrderDetails = () => {
             {
               headers: {
                 "Content-Type": "application/json",
+                Authorization: localStorage.getItem("dToken"),
               },
             }
           )
@@ -106,6 +117,7 @@ const OrderDetails = () => {
             {
               headers: {
                 "Content-Type": "application/json",
+                Authorization: localStorage.getItem("dToken"),
               },
             }
           )
