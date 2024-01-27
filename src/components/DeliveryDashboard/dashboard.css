@@ -109,7 +109,8 @@
   margin-top: 20px;
   font-size: 15px;
 }
-.user-profile .user-details a {
+/* Copy code of customer */
+/* .user-profile .user-details a {
   color: #fff;
   border-radius: 20px;
   font-size: 14px;
@@ -117,7 +118,7 @@
   background: #1665a0;
   border: 0;
   text-decoration: none;
-}
+} */
 
 .order h3 {
   color: #1665a0;

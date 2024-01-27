@@ -57,14 +57,9 @@ header {
 h2 {
   text-align: center;
   color: #44bd32;
-  margin-bottom: 2 rem;
+  margin-bottom: 2rem;
   font-family: "Handlee", cursive;
   font-weight: bold;
-}
-
-ul li {
-  margin-top: 0.6rem;
-  margin-bottom: 0.6rem;
 }
 
 .nav-link {
@@ -207,6 +202,7 @@ nav .active {
 }
 #Footer h5 {
   color: #fff;
+  margin-bottom: 20px;
 }
 
 #Footer a {
@@ -782,7 +778,7 @@ h5 {
 }
 
 .btn-order {
-  padding: 1px 5px;
+  padding: 1px 5px 4px;
   border-radius: 9px;
   color: #fff;
   font-size: 13px;
@@ -790,7 +786,7 @@ h5 {
   background-color: #f39c12;
 }
 .btn-delv {
-  padding: 1px 5px;
+  padding: 1px 5px 4px;
   border-radius: 9px;
   color: #fff;
   font-size: 13px;
@@ -798,7 +794,7 @@ h5 {
   background-color: #44bd32;
 }
 .btn-on-delv {
-  padding: 1px 5px;
+  padding: 1px 5px 4px;
   border-radius: 9px;
   color: #fff;
   font-size: 13px;
@@ -806,7 +802,7 @@ h5 {
   background-color: #6c5ce7;
 }
 .btn-cncl {
-  padding: 1px 5px;
+  padding: 1px 5px 4px;
   border-radius: 9px;
   color: #fff;
   font-size: 13px;
